@@ -145,7 +145,8 @@ const page = ({ params }) => {
     setLoading(true);
     const apiUrl = "https://api.openai.com/v1/chat/completions";
     const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
-    const inputPrompt = `I will give you an English statement to convert to a JSON object in this format: availability: [{dayOfWeek: { type: String}, timeSlots: [{from: { type: String }, to: { type: String },},],},]. Example: {"availability": [{"dayOfWeek": "monday", "timeSlots": [{ "from": "09:00", "to": "12:00" }]},{"dayOfWeek": "tuesday", "timeSlots": [{ "from": "14:00", "to": "17:00" }]},{"dayOfWeek": "friday", "timeSlots": [{ "from": "10:00", "to": "12:00" },{ "from": "1:00", "to": "2:00" }]}]}. There must be at least 1 in timeSlots for everyday you provide. dayOfWeek must be saturday, sunday, monday, tuesday, wednesday, thursday or friday. In time slots from and to must be between 00:00 and 23:59. If the dayOfWeek doesn't have any timeSlots, don't provide it. Convert the time given in the english statement to 24-hour clock. The day start at 00:00 and ends at 23:59. timeSlots must contain at least 1 time. If the english statement does not contain information relevant to converting return 1 random time at a random day. Note that today is saturday and all days are lowercase. Provide JSON object only nothing more. Here is the English statement to convert: “${text}".`;
+    const inputPrompt = `I will give you an English statement to convert to a JSON object in this format: availability: [{dayOfWeek: { type: String}, timeSlots: [{from: { type: String }, to: { type: String },},],},]. Example: {"availability": [{"dayOfWeek": "monday", "timeSlots": [{ "from": "09:00", "to": "12:00" }]},{"dayOfWeek": "tuesday", "timeSlots": [{ "from": "14:00", "to": "17:00" }]},{"dayOfWeek": "friday", "timeSlots": [{ "from": "10:00", "to": "12:00" },{ "from": "1:00", "to": "2:00" }]}]}. There must be at least 1 in timeSlots for everyday you provide. dayOfWeek must be saturday, sunday, monday, tuesday, wednesday, thursday or friday. In time slots from and to must be between 00:00 and 23:59. If the dayOfWeek doesn't have any timeSlots, don't provide it. Convert the time given in the english statement to 24-hour clock. The day start at 00:00 and ends at 23:59. timeSlots must contain at least 1 time. If the english statement does not contain information relevant to converting return 1 random time at a random day. Note that today is saturday and all days are lowercase. Provide JSON object only nothing more.Dont add ${"```json"} just the object. Here is the English statement to convert: “${text}".`
+;
     fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -238,7 +239,7 @@ const page = ({ params }) => {
             id="standard-multiline-static"
             label="When are you available"
             multiline
-            style = {{width: "50%"}} 
+            style = {{width: "40%"}} 
             onChange={(e) => setText(e.target.value)}
           />
           <LoadingButton
