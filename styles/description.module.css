@@ -1,0 +1,24 @@
+
+.description {
+  margin-bottom: 20px; /* Adjust spacing between descriptions */
+}
+
+.title {
+  font-size: 24px; /* Adjust title font size */
+  font-weight: bold; /* Adjust title font weight */
+  margin-bottom: 10px; /* Adjust spacing between title and text */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  
+}
+
+.text {
+  font-size: 16px; /* Adjust text font size */
+  line-height: 1.5; /* Adjust line height for better readability */
+  color: rgb(255, 255, 255);
+  margin-left: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
